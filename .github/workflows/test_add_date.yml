@@ -1,0 +1,25 @@
+name: 오늘 날짜 추가
+
+on:
+  schedule:
+    - cron: '0 * * * *' # 매일 오전 9시에 실행
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v3
+
+      - name: 날짜 추가
+        run: |
+          echo "## 오늘 날짜" >> README.md
+          echo "$(date +'%Y-%m-%d')" >> README.md
+
+      - name: 변경 사항 커밋 및 푸시
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email '41898282+github-actions@users.noreply.github.com'
+          git add .
+          git commit -m '오늘 날짜 추가'
+          git push
