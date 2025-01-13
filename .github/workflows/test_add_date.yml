@@ -1,6 +1,7 @@
 name: 오늘 날짜 추가
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '10 * * * *' # 매일 오전 9시에 실행
 
