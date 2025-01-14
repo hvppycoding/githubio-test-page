@@ -25,7 +25,7 @@ on:
         type: environment
         required: true
   schedule:
-    - cron: '0 18 * * *' # 매일 오전 9시(UTC+09:00 고려)에 실행
+    - cron: '0 0 * * *' # 매일 오전 9시(UTC+09:00 고려)에 실행
 
 jobs:
   update:
